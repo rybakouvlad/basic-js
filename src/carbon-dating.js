@@ -6,7 +6,7 @@ module.exports = function dateSample( sampleActivity ) {
   if( sampleActivity == undefined){
     return false;
   }
-  console.log(sampleActivity);
+  // console.log(sampleActivity);
   // remove line with error and write your code here
 return sampleActivity;
   
