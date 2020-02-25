@@ -1,6 +1,5 @@
 module.exports = function getSeason( date) {
   if(isNaN(date) === true){
-    console.log("kuku");
      throw 'Not implemented';
   }
   switch (true) {
