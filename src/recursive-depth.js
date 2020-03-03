@@ -3,18 +3,18 @@
 module.exports = class DepthCalculator {
 
       calculateDepth( arr) {
+        let mx = 1;
         let result = 1;
-       console.log("kuku:" + arr);
        arr.forEach(el =>  {
         if (Array.isArray(el)) {
-        console.log(el); 
-        console.log(result + " " + this.calculateDepth(el) + "max" + Math.max(result, this.calculateDepth(el)));
-        return result = 1 + this.calculateDepth(el)}
-         
+         result = 1 + this.calculateDepth(el);}
+         if(result>mx){
+           mx = result;
+           
+         }
+         return mx;
     });
-    
-    
-    return result;
-      }
+    return mx;
+      }    
 };
 
