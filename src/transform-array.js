@@ -1,3 +1,5 @@
+const CustomError = require("../extensions/custom-error");
+
 module.exports = function transform(arr) {
  
   let result = [];
@@ -12,8 +14,12 @@ module.exports = function transform(arr) {
  
     switch (arr[i]) {
       case "--discard-next":
-        if (arr[i + 2] === "--double-prev" || arr[i + 2] === "--double-prev") {
-          result.push(arr[i + 1]);
+        if (arr[i + 2] === "--double-prev" ) {
+          i++;
+          i++;
+          break;
+        }
+        if(arr[i + 2] === "--discard-prev"){
           i++;
           i++;
           break;
@@ -21,13 +27,15 @@ module.exports = function transform(arr) {
         i++;
         break;
       case "--discard-prev":
+        
         result.splice(result.length - 1, 1);
         break;
       case "--double-next":
-        if (i >= arr.length - 1) {
-          break;
-        }
-        result.push(arr[i + 1], arr[i + 1]);
+         if (i >= arr.length - 1) {
+           break;
+         }
+        result.push(arr[i + 1]);
+        result.push(arr[i + 1]);
         i++;
         break;
       case "--double-prev":
@@ -44,3 +52,4 @@ module.exports = function transform(arr) {
   }
   return result;
 };
+
