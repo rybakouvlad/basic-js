@@ -1,7 +1,5 @@
 module.exports = function transform(arr) {
-  // throw 'Not implemented';
-  // remove line with error and write your code here
-  //console.log(arr);
+ 
   let result = [];
   if (!Array.isArray(arr)) {
     throw Error("arr is not Array");
@@ -11,8 +9,7 @@ module.exports = function transform(arr) {
   }
 
   for (let i = 0; i < arr.length; i++) {
-    // console.log(arr[i]);
-    //console.log(result);
+ 
     switch (arr[i]) {
       case "--discard-next":
         if (arr[i + 2] === "--double-prev" || arr[i + 2] === "--double-prev") {
